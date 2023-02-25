@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 }
 body {
   background-color: #599b76;
