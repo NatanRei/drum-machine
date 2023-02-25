@@ -2,12 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/src/assets/n.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>Drum Machine</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx">
+    </script>
+    <script>
+      document.addEventListener("keydown", (e) => {
+        const id = e.key.toUpperCase();
+        const audio = document.getElementById(id);
+        if (audio) {
+          audio.currentTime = 0;
+          const parent = audio.parentNode;
+          parent.classList.add("active");
+          const display = parent.parentNode;
+          display.querySelector('h1').innerText = `${id} foi tocada!`; 
+          audio.play();
+          parent.classList.remove("active");
+        }
+      });
+    </script>
   </body>
 </html>
